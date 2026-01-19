@@ -48,6 +48,18 @@ case f.currency_code when 'EUR' then 'Euro'
 division(f.seats_max, f.seats_occupied,2) as OccupancyRate2,
 length(' ') as SSS,
 length('  X') as SSX,
-length('X  ') as XSS
+length('X  ') as XSS,
+
+@Semantics.amount.currencyCode: 'CurrencyCode2'
+currency_conversion( amount => f.price,
+ source_currency => f.currency_code, 
+ target_currency => cast('EUR' as abap.cuky),
+  exchange_rate_date => f.flight_date, 
+  error_handling => 'SET_TO_NULL')as ConvertedPrice,
+
+ cast('EUR' as abap.cuky) as CurrencyCode2,
+ 
+ dats_add_days(f.flight_date, 30, 'FAIL') as NewDate
+
 
 }
