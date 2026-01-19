@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZCL_05_RENTAL</CLSNAME>
+    <CLSNAME>ZCL_05_ABAP_CDS_01</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Rental</DESCRIPT>
+    <DESCRIPT>Flugverbindungleser</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

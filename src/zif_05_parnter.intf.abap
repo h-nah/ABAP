@@ -1,4 +1,8 @@
-interface ZIF_05_PARNTER
-  public .
+INTERFACE zif_05_parnter
+  PUBLIC .
 
-endinterface.
+  methods to_string
+  RETURNING VALUE(string) type string.
+
+
+ENDINTERFACE.

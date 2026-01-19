@@ -1,11 +1,11 @@
 CLASS zcl_05_vehicle DEFINITION
   PUBLIC ABSTRACT
+*Abstrake Klassen können nicht instanziert werden (SInd nur zur VErerbung von attributen zuständig)
   CREATE PUBLIC.
 
   PUBLIC SECTION.
     METHODS constructor IMPORTING make  TYPE string
                                   model TYPE string.
-
     METHODS accelerate IMPORTING !value TYPE i
                        RAISING   zcx_00_value_too_high.
 
@@ -13,6 +13,8 @@ CLASS zcl_05_vehicle DEFINITION
                   RAISING   zcx_00_value_too_high.
 
 *Abstrake Klassen können nicht instanziert werden (SInd nur zur VErerbung von attributen zuständig)
+*Jedes hat diese Methode, wie sie implemeniter wird, wird von der Unterklasse entschieden
+*Jede Unterklasse muss abstrakte Methoden implementieren
 
     METHODS to_string RETURNING VALUE(string) TYPE string.
 

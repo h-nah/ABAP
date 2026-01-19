@@ -15,6 +15,16 @@ CLASS zcl_05_main_vehicles IMPLEMENTATION.
     DATA vehicles TYPE TABLE OF REF TO zcl_00_vehicle.
     DATA truck    TYPE REF TO zcl_00_truck.
 
+    DATA rental TYPE REF to zcl_05_rental.
+    DATA carrier type ref to zcl_05_carrier.
+    DATA partners type table of ref to zif_05_parnter.
+
+    rental = new #(  ).
+    carrier = new #( 'Luftthansa' ).
+
+    APPEND rental to partners. "Upcast
+    APPEND carrier to partners.
+
     " Instanziierungen
     out->write( zcl_00_vehicle=>number_of_vehicles ).
 
@@ -53,5 +63,14 @@ CLASS zcl_05_main_vehicles IMPLEMENTATION.
       ENDIF.
       out->write( vehicle->to_string( ) ). " (Dynamische) Polymorphie
     ENDLOOP.
+
+   LOOP AT partners into data(parnter).
+ "     out->write( parnter->to_string(  ) ).
+
+      if parnter is instance of zcl_05_rental.
+       rental = cast #( parnter )."Downcast
+      ENDIF.
+   ENDLOOP.
+
   ENDMETHOD.
 ENDCLASS.
